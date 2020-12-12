@@ -332,6 +332,10 @@ h3.menu-item-title {
   /* End Footer */
 
   /* Home Page */
+  .img-responsive visible-xs{
+    background: url('../images/jumbo(small).jpg') no-repeat;
+
+  }
   .container .jumbotron {
     margin-top: 30px;
     padding: 0;
