@@ -1,0 +1,15 @@
+{% extends "../base.html" %}
+{% block title %}Recipient's Club{% endblock title %}
+
+
+{% block content %}
+<h2>List of all requests that are accepted  :- </h2>
+{% for object in object_list %}
+<ul>
+  <li>Username = {{object.donor_d}}</li>
+</ul>
+<hr>
+{% endfor %}
+
+<h2>Click <a href="{% url 'recipient:profileR' Rslug=rec_obj.slug %}">HERE</a> to go back to your profile.</h2>
+{% endblock content %}

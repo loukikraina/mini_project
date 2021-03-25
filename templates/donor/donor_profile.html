@@ -1,0 +1,28 @@
+
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Donor's Club{% endblock title %}
+
+{% block content %}
+
+<!-- main content -->
+  <div id="main-content" class="container">
+    <div class="jumbotron">
+      <h1><span>{{object.profile_pic}}</span>{{ user.first_name }}'s Profile</h1>
+      <ol>
+        <li>User_name = {{object.user}}</li>
+        <li>Blood_group = {{object.blood_group}}</li>
+        <li>Present_address = {{object.present_address}}</li>
+        <li>Pincode = {{object.pincode}}</li>
+        <li>Phone Number = {{object.phone}}</li>
+
+      </ol>
+      <a href="{% url 'donor:updateD' Dslug=object.slug %}"><input type="button" class='btn btn-default' value="Edit Profile"></a>
+      <a href="{% url 'donor:RreqD' Dslug=object.slug %}"><input type="button" class='btn btn-default' value="View All Requests"></a>
+      <a href="{% url 'donor:AreqD' Dslug=object.slug %}"><input type="button" class='btn btn-default' value="View Accepted Requests"></a>
+
+    </div>
+  </div><!-- End of #main-content -->
+
+
+{% endblock content %}

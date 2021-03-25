@@ -1,0 +1,23 @@
+{% extends "../base.html" %}
+{% block title %}Recipient's Club{% endblock title %}
+
+
+{% block content %}
+<h2>List of all the Requests made by you :- </h2>
+{% for object in object_list %}
+<ul>
+
+<li><ol>
+  <li>Donor Username = {{object.donor_d}}</li>
+  <li>Donor Blood group = {{ object.donor_d.blood_group }}</li>
+  <li>Donor Pincode = {{ object.donor_d.pincode }}</li>
+  <div class="container">
+    <a href="{% url 'recipient:dropR' Rslug=object.recipient_r.slug Dslug=object.donor_d.slug %}"><input type="button"  value="Delete Request" class='btn btn-warning'></a>
+  </div>
+
+</ol>
+</li>
+<hr>
+</ul>
+{% endfor %}
+{% endblock content %}

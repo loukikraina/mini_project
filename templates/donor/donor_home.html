@@ -1,0 +1,22 @@
+
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Donor's Club{% endblock title %}
+
+{% block content %}
+
+<!-- main content -->
+  <div id="main-content" class="container">
+    <div class="jumbotron">
+      <h1>Welcome {{ user.first_name }}, Our Prestigeous Donor!</h1>
+      {% if don_obj == 'NAN' %}
+      <a href="{% url 'donor:crD' %}"><input type="button" class='btn btn-default' value="Create Profile"></a>
+      {% else %}
+      <a href="{% url 'donor:profileD' Dslug=don_obj.slug %}"><input type="button" class='btn btn-default' value="My Profile"></a>
+      {% endif %}
+      <h2></h2>
+    </div>
+  </div><!-- End of #main-content -->
+
+
+{% endblock content %}

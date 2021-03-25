@@ -1,0 +1,17 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Recipient's Club{% endblock title %}
+{% block content %}
+
+<div class="">
+
+  <h1 class=''>List Of Donors Who Are Available To Give Blood:- </h1>
+    {% for donor in object_list %}
+        <div class="post">
+            <h1><a href="{% url 'recipient:alldetailD'  Rslug=rec_obj.slug Dslug=donor.slug %}">{{ donor.user.first_name }}_{{donor.user.last_name}}</a> @ {{ donor.user }}</h1>
+            <p>Blood group: {{ donor.blood_group }}</p>
+        </div>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}

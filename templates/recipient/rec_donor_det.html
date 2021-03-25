@@ -1,0 +1,16 @@
+{% extends "../base.html" %}
+{% block title %}Recipient's Club{% endblock title %}
+
+
+{% block content %}
+<h2>Details of {{ object.user.first_name }} :- </h2>
+<ul>
+  <li>Username = {{object.user.username}}</li>
+  <li>Blood group = {{ object.blood_group }}</li>
+  <li>Pincode = {{ object.pincode }}</li>
+  <li>Address = {{ object.present_address }}</li>
+</ul>
+<hr>
+
+<a href="{% url 'recipient:RaiseR' Rslug=rec_obj.slug Dslug=object.slug %}"><input type="button" value="Request Blood" class='btn btn-success'></a>
+{% endblock %}

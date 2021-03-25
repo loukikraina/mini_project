@@ -1,0 +1,22 @@
+
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Recipient's Club{% endblock title %}
+
+{% block content %}
+
+<!-- main content -->
+  <div id="main-content" class="container">
+    <div class="jumbotron">
+      <h1>Welcome {{ user.first_name }}, Our Recipient!</h1>
+      {% if rec_obj == 'NAN' %}
+      <a href="{% url 'recipient:crR' %}"><input type="button" class='btn btn-default' value="Create Profile"></a>
+      {% else %}
+      <a href="{% url 'recipient:profileR' Rslug=rec_obj.slug %}"><input type="button" class='btn btn-default' value="My Profile"></a>
+      {% endif %}
+      <h2></h2>
+    </div>
+  </div><!-- End of #main-content -->
+
+
+{% endblock content %}

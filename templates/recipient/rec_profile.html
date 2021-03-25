@@ -1,0 +1,30 @@
+
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Recipient's Club{% endblock title %}
+
+{% block content %}
+
+<!-- main content -->
+  <div id="main-content" class="container">
+    <div class="jumbotron">
+      <h1><span>{{object.profile_pic}}</span>{{ user.first_name }}'s Profile</h1>
+      <ol>
+        <li>User_name = {{object.user}}</li>
+        <li>Blood_group = {{object.blood_group}}</li>
+        <li>Present_address = {{object.present_address}}</li>
+        <li>Pincode = {{object.pincode}}</li>
+        <li>Phone Number = {{object.phone}}</li>
+
+      </ol>
+      <a href="{% url 'recipient:updateR' Rslug=object.slug %}"><input type="button" class='btn btn-primary' value="Edit Profile"></a>
+      <a href="{% url 'recipient:reqR' Rslug=object.slug %}"><input type="button" class='btn btn-primary' value="View my Requests"></a>
+      <a href="{% url 'recipient:allD' Rslug=object.slug %}"><input type="button" class='btn btn-primary' value="View donors list"></a>
+      <br>
+      <p align='center'>      <a href="{% url 'recipient:AreqR' Rslug=object.slug %}"><input type="button" class='btn btn-success' value="View accepted request"></a>
+</p>
+    </div>
+  </div><!-- End of #main-content -->
+
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Blood Donation Club{% endblock title %}
+
+{% block content %}
+
+<!-- main content -->
+  <div id="main-content" class="container">
+    <div class="jumbotron">
+      {% if user.is_authenticated %}
+      {% if user.user_category == 'Donor' %}
+      <h1>Go to donors home page :- </h1>
+        <a href="{% url 'donor:Dhome' %}" class='btn btn-primary'>Click</a>
+
+      {% else %}
+        <h1>Go to recipients home page :- </h1>
+        <a href="{% url 'recipient:Rhome' %}" class= 'btn btn-primary'>Click</a>
+        {% if rec_obj != "NAN" %}
+        <a href="{% url 'recipient:allD' Rslug=rec_obj.slug %}" class='btn btn-default'><input type="button" value="Donors list"></a>
+        {% endif %}
+      {%endif%}
+      {%else%}
+      <img src="{% static "images/jumbo(small).jpg" %}" alt='“Anybody can give blood”' class="img-responsive visible-xs">
+    </div>
+
+    <div id="home-tiles" class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <a href="{% url 'donor:Dhome' %}"><div id="menu-tile"><span>Donate Blood Now !</span></div></a>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <a href="{% url 'recipient:Rhome' %}"><div id="specials-tile"><span>Recieve Blood Now !</span></div></a>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <a href="{% url 'basic:bhome' %}">
+          <div id="map-tile">
+            <span>Statics and History</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    {%endif%}<!-- End of #home-tiles -->
+  </div><!-- End of #main-content -->
+
+
+{% endblock content %}

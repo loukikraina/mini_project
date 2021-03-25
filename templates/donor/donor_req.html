@@ -1,0 +1,21 @@
+{% extends "../base.html" %}
+{% block title %}Donor's Club{% endblock title %}
+
+
+{% block content %}
+<h2>List of all the Requests made by Recipients :- </h2>
+{% for object in object_list %}
+<ul>
+  <li>Username = {{object.recipient_r}}</li>
+  <li>Blood group = {{ object.recipient_r.blood_group }}</li>
+  <li>Pincode = {{ object.recipient_r.pincode }}</li>
+  <div class="container">
+    <a href="{% url 'donor:AccReq' Dslug=object.donor_d.slug  Rslug=object.recipient_r.slug %}"><input type="button"  value="Accept Request" class='btn btn-success'></a>
+  </div>
+
+</ul>
+<hr>
+{% endfor %}
+
+<h2>Click <a href="{% url 'donor:AreqD' Dslug=don_obj.slug %}">HERE</a> to see list of all requests accepted by you:- </h2>
+{% endblock content %}

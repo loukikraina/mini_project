@@ -1,0 +1,17 @@
+{% extends "../base.html" %}
+{% block title %}Donor's Club{% endblock title %}
+
+
+{% block content %}
+<h2>List of all requests accepted by you :- </h2>
+{% for object in object_list %}
+<ul>
+  <li>Username = {{object.recipient_r}}</li>
+  <li>Blood group = {{ object.recipient_r.blood_group }}</li>
+  <li>Pincode = {{ object.recipient_r.pincode }}</li>
+</ul>
+<hr>
+{% endfor %}
+
+<h2>Click <a href="{% url 'donor:profileD' Dslug=don_obj.slug %}">HERE</a> to go back to your profile.</h2>
+{% endblock content %}
